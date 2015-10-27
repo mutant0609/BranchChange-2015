@@ -1,0 +1,73 @@
+{% extends "blog/base.html" %}
+{% comment %}
+
+This is the display for the 'Post Ad' form.
+
+URL: postad/
+Model: PostAd
+ModelForm: PostAdForm
+View: PostAdPage [FormView]
+View Return: HttpResponse : message - "Sweeeeeeeet."
+'Name', 'Roll_Number','Present_Branch','CPI','Pref1','Pref2','Pref3','Pref4')
+* = preset when user is logged in.
+
+{% endcomment %}
+
+{% block content %}
+<form action="post" method="POST">{% csrf_token %}
+    <!-- *name -->
+    {{  form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.Name.errors }}
+        <label for="id_name">Name</label>
+        {{ form.Name }}
+    </div>
+    <!-- *email -->
+    <div class="fieldWrapper">
+        {{ form.Roll_Number.errors }}
+        <label for="id_email">Roll Number</label>
+        {{ form.Roll_Number }}
+    </div>
+    <!-- gist -->
+    <div class="fieldWrapper">
+        {{ form.CurrentBranch.errors }}
+        <label for="id_gist">Present Branch</label>
+        {{ form.CurrentBranch }}
+    </div>
+    <!-- category -->
+  <!--  <div class="fieldWrapper">
+        {{ form.CPI.errors }}
+        <label for="id_CPI">CPI</label>
+        {{ form.CPI }}--!>
+    </div>
+    <!-- location -->
+    <div class="fieldWrapper">
+        {{ form.Pref1.errors }}
+        <label for="id_pref1">Wish to go to Pref1</label>
+        {{ form.Pref1 }}
+    </div>
+    <!-- description -->
+    <div class="fieldWrapper">
+        {{ form.Pref2.errors }}
+        <label for="id_pref2">Wish to go to Pref2</label>
+        {{ form.Pref2 }}
+    </div>
+    <!-- expire -->
+    <div class="fieldWrapper">
+        {{ form.Pref3.errors }}
+        <label for="id_pref3">Wish to go to Pref3</label>
+        {{ form.Pref3 }}
+    </div>
+ <!-- expire -->
+    <div class="fieldWrapper">
+        {{ form.Pref4.errors }}
+        <label for="id_pref4">Wish to go to Pref4</label>
+        {{ form.Pref4 }}
+    </div>
+    <button type="submit">
+        <i class="fa fa-thumb-tack"></i> Submit
+    </button>
+</form>
+{% endblock %}
+
+

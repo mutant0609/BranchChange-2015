@@ -1,0 +1,9 @@
+Feature1:
+ Roll Number field accepts only 9 digit roll numbers starting with 15.
+	For the time being we added a help-text to notify to the user.Actually UI can show a notification to the user if we use regular expressions for the required feature.
+
+Feature2:
+	Submitting without filling any required field (here the required fields are name,rollnumber,currentbranch,category,CPI and the 1st preference) gives a notification and we cannot submit until all the the required fields are filled.
+
+Feature3:
+	

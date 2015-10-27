@@ -1,0 +1,17 @@
+Feature1:
+ 	Roll Number field accepts only 9 digit roll numbers starting with 15.
+	For the time being we added a help-text to notify to the user the required featue.Actually UI can show a notification to the user if we use regular expressions for the required feature.
+
+Feature2:
+	Submitting without filling any required field (here the required fields are name,rollnumber,currentbranch,category,CPI and the 1st preference and the remaining preferences are optional) gives a notification and we cannot submit until all the the required fields are filled.
+	Test Case:
+	-Try submitting without entering any required field.
+	 Expected Behaviour:The UI gives a notification and the submit button will be deactivated until all the required fields are filled.
+
+Feature3:
+	CPI field accept number between 0 and 10 upto two decimal places and a help-text is placed there to notify that the CPI should be atleast 8 for GE and OBC categories and atleast 7 for SC,ST and PwD categories.
+	Test Cases:
+		Try giving the CPI which is not in the given range.
+		Expected Behaviour: The UI shows a notification to the user and the submit button will be deactivated until he gives the correct input.
+		
+	

@@ -98,7 +98,7 @@ def form_branchlist():	#should be done before any changes to mainlist capacities
     #print("You must provide exactly one command-line argument the input csv file!!!")
 def main():
 
-	with open(os.path.join(workpath,'capacities.csv'), 'r') as capacities:
+	with open(os.path.join(workpath,'./../media/documents/input_programmes.csv'), 'r') as capacities:
 		for line in csv.reader(capacities):
 			entry=line[1]
 			if re.search(r"[0-9].*",entry):
@@ -109,8 +109,8 @@ def main():
 	output=[]
 	ineligiblemat=[]
 	#script,filename = argv
-	with open(os.path.join(workpath,'input.csv'), 'r') as csvfilename:
-		with open('./cpi_sorted.csv', 'w') as cpi_sorted:
+	with open(os.path.join(workpath,'./../media/documents/input_options.csv'), 'r') as csvfilename:
+		with open(os.path.join(workpath,'cpi_sorted.csv'), 'w') as cpi_sorted:
 			writer = csv.writer(cpi_sorted)
 			for row in csv.reader(csvfilename):
 				new=[]
@@ -121,7 +121,7 @@ def main():
 							new.append(word)
 					data.append(new)
 			writer.writerows(sorted(data, key=lambda row: float(row[3]), reverse=True))
-	with open(os.path.join(workpath,'capacities.csv'), 'r') as csvfilename:
+	with open(os.path.join(workpath,'./../media/documents/input_programmes.csv'), 'r') as csvfilename:
 		for row in csv.reader(csvfilename):
 			capacities1.append(row)
 	eligiblemat=sorted(data, key=lambda row: float(row[3]), reverse=True)
@@ -149,7 +149,7 @@ def main():
 				j=j-1
 		j=j+1
 
-	with open('./eligible.csv', 'w') as eligible:
+	with open(os.path.join(workpath,'eligible.csv'), 'w') as eligible:
 		writer=csv.writer(eligible)
 		writer.writerows(eligiblemat)
 	toprocess=eligiblemat
@@ -211,7 +211,7 @@ def main():
 			break
 
 	if len(toprocess)==0:
-		with open('./final.csv', 'w') as finalcsv:
+		with open(os.path.join(workpath,'./../media/documents/allotment.csv'), 'w') as finalcsv:
 			writer=csv.writer(finalcsv)
 			final.insert(0,header)
 			writer.writerows(final)
@@ -219,7 +219,7 @@ def main():
 			writer.writerows(ineligiblemat)
 
 	elif temp==prev:
-		with open('./final.csv', 'w') as finalcsv:
+		with open(os.path.join(workpath,'./../media/documents/allotment.csv'), 'w') as finalcsv:
 			writer=csv.writer(finalcsv)
 
 			final.insert(0,header)
@@ -227,22 +227,21 @@ def main():
 			writer.writerows(temp)
 			writer.writerows(unhappy)
 			writer.writerows(ineligiblemat)
-	with open('./branchlist','w') as finconfig:
+	with open(os.path.join(workpath,'./../media/documents/output_stats.csv'),'w') as finconfig:
 		writer=csv.writer(finconfig)
 		writer.writerows(mainlist)
 		writer.writerows(checklist)
 		writer.writerows(cutoff)
 	total=[]
 	''''''
-	with open('final.csv', 'r') as fin:
+	with open(os.path.join(workpath,'./../media/documents/allotment.csv'), 'r') as fin:
 		for row in csv.reader(fin):
 			total.append(row)
 
-	with open('./tocheck.csv','w') as tocheck:
+	with open(os.path.join(workpath,'./../media/documents/allotment.csv'),'w') as tocheck:
 		writer=csv.writer(tocheck)
 		total.remove(header)
 		total=sorted(total, key=tosort)
 		total.insert(0,header)
 		writer.writerows(total)
-
 

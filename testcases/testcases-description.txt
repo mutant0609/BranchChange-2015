@@ -1,0 +1,18 @@
+a-
+Here, we have first 4 entries ineligible to apply for branch change due to CPI cutoff and birth category. Hence first 4 people are not allowed branch change and correctly marked as ineligible in the output. So only one branch change is allowed, i.e. the 5th student 'ALA'.
+
+b-
+This case has more than 9 students putting their first option as CS B.Tech(i.e. more than 10% of sanctioned strength). All of them are allowed branch change since their CPI is above 9 (unrestrained branch change)
+
+c-
+Here, more than 75% students from CH are trying to change to other branch. All of them are allowed branch change since their CPI's are atleast 9. So the lower limit of final branch strength is relaxed here.
+
+d-
+Here, the top 7 students (in CPI order) put 1st option as EE B.Tech. But only 6 extra students are permitted into EE B.Tech. So the 7th student( in CPI order, i.e. ABH) is not allowed branch change in 1st iteration over merit list. After that AND moves from EE B.Tech to MM B.Tech. Thus a new vacancy is created in EE B.Tech and ABH is allowed branch change in 2nd iteration over merit list. Hence we see all students being allowed branch change in the final merit list.
+
+e-
+This case has more than 9 students putting their first option as CS B.Tech(i.e. more than 10% of sanctioned strength). All of them are allowed branch change since their CPI's are all equal to 8 ( so everybody is qualified irrespective of their birth category ). Since all of them have same CPI, everybody is allowed to change branch for the sake of fairness, even though final strength of CS B.Tech shoots above its 10% extra capacity.
+
+f-
+Here, more than 75% students from CH are trying to change to other branch. All of them are allowed branch change since their CPI's are all equal to 8. So for the sake of fairness, everybody is allowed branch change even though final strength of CH brnach falls below 75% of sanctioned strength.
+
